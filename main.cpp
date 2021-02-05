@@ -1,9 +1,17 @@
 #include <iostream>
 #include <string>
 
+bool isMale(std::string name) {
+    const int stringLenght(name.length());
+    const char lastCharacter(name[stringLenght - 1]);
+
+    return tolower(lastCharacter) == 's';
+}
+
 void PrintFrame(std::string name) {
-    const std::string sentence = "Sveikas, " + name + "!";
-    const int sentenceLength = sentence.length();
+    const std::string greeting(isMale(name) ? "Sveikas" : "Sveika");
+    const std::string sentence(greeting + ", " + name + "!");
+    const int sentenceLength(sentence.length());
 
     const std::string preffix("* ");
     const std::string suffix(" *");
